@@ -4,6 +4,7 @@ module Chess
   class Board
     def initialize
       @board = Array.new(8) { Array.new(8) }
+      place_pieces
     end
 
     def [](index)
@@ -26,6 +27,22 @@ module Chess
       return piece.on_grey if (file.odd? && rank.odd?) || (file.even? && rank.even?)
 
       piece
+    end
+
+    def place_piece(type, color, file, rank)
+      @board[file][rank] = type.new(color, [file, rank])
+    end
+
+    def place_pieces
+      place_piece(Rook, WHITE, 0, 0)
+      place_piece(Rook, WHITE, 7, 0)
+      place_piece(Knight, WHITE, 1, 0)
+      place_piece(Knight, WHITE, 6, 0)
+
+      place_piece(Rook, BLACK, 0, 7)
+      place_piece(Rook, BLACK, 7, 7)
+      place_piece(Knight, BLACK, 1, 7)
+      place_piece(Knight, BLACK, 6, 7)
     end
   end
 end
