@@ -4,4 +4,4 @@ require_relative "lib/chess"
 
 game = Chess.new
 
-game.board.print
+puts game.board
