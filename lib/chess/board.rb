@@ -4,6 +4,7 @@ module Chess
   class Board
     def initialize
       @board = Array.new(8) { Array.new(8) }
+      @highlighted_tiles = nil
       place_pieces
     end
 
@@ -24,9 +25,14 @@ module Chess
     end
 
     def color(piece, file, rank)
-      return piece.on_grey if (file.odd? && rank.even?) || (file.even? && rank.odd?)
+      highlight = @highlighted_tiles&.include?([file, rank])
+      alt = (file.odd? && rank.even?) || (file.even? && rank.odd?)
 
-      piece
+      if highlight
+        alt ? piece.on_cyan : piece.on_blue
+      else
+        alt ? piece.on_grey : piece
+      end
     end
 
     def place_piece(type, color, file, rank)
