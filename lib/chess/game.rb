@@ -2,10 +2,10 @@
 
 module Chess
   class Game
-    attr_reader :board
+    include Board
 
     def initialize
-      @board = Board.new
+      @board = Array.new(8) { Array.new(8) }
       initialize_pieces
       initialize_moves
     end

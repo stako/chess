@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require "colorize"
-require_relative "chess/game"
 require_relative "chess/board"
+require_relative "chess/game"
 require_relative "chess/piece"
 require_relative "chess/rook"
 require_relative "chess/knight"

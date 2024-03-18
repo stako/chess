@@ -1,30 +1,27 @@
 # frozen_string_literal: false
 
 module Chess
-  class Board
-    def initialize
-      @board = Array.new(8) { Array.new(8) }
-      @highlighted_tiles = nil
-    end
+  module Board
+    attr_reader :board
 
     def [](index)
       @board[index]
     end
 
-    def to_s
+    def print_board(selected_piece = nil)
       display = ""
       (0..7).reverse_each do |rank|
         8.times do |file|
           piece = @board[file][rank]&.to_s || EMPTY
-          display << color(piece, file, rank)
+          display << color(piece, file, rank, selected_piece&.move_list)
         end
         display << "\n"
       end
       display
     end
 
-    def color(piece, file, rank)
-      highlight = @highlighted_tiles&.include?([file, rank])
+    def color(piece, file, rank, move_list)
+      highlight = move_list&.include?([file, rank])
       alt = (file.odd? && rank.even?) || (file.even? && rank.odd?)
 
       if highlight

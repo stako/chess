@@ -2,7 +2,7 @@
 
 module Chess
   module Piece
-    attr_reader :team
+    attr_reader :team, :move_list
 
     def initialize(team, position)
       @team = team
