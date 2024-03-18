@@ -2,6 +2,11 @@
 
 require_relative "lib/chess"
 
-game = Chess.new
+@game = Chess.new
 
-puts game.print_board(game.board[1][7])
+def clear_print
+  system "clear"
+  @game.print_board
+end
+
+clear_print

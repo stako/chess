@@ -17,7 +17,7 @@ module Chess
         end
         display << "\n"
       end
-      display
+      puts display
     end
 
     def color(piece, file, rank, move_list)
