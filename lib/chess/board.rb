@@ -42,6 +42,7 @@ module Chess
       place_piece(Bishop, WHITE, 5, 0)
       place_piece(Queen, WHITE, 3, 0)
       place_piece(King, WHITE, 4, 0)
+      8.times { |x| place_piece(Pawn, WHITE, x, 1) }
 
       place_piece(Rook, BLACK, 0, 7)
       place_piece(Rook, BLACK, 7, 7)
@@ -51,6 +52,7 @@ module Chess
       place_piece(Bishop, BLACK, 5, 7)
       place_piece(Queen, BLACK, 3, 7)
       place_piece(King, BLACK, 4, 7)
+      8.times { |x| place_piece(Pawn, BLACK, x, 6) }
     end
   end
 end
