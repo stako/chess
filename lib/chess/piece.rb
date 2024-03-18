@@ -2,6 +2,8 @@
 
 module Chess
   module Piece
+    attr_reader :team
+
     def initialize(team, position)
       @team = team
       @position = position
