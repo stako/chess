@@ -8,7 +8,7 @@ module Chess
       @move_list = []
     end
 
-    def find_moves(board, directions)
+    def build_moves_dir(board, directions)
       list = []
       directions.each do |dx, dy|
         dest_x = @position[0] + dx

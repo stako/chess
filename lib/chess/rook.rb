@@ -10,7 +10,7 @@ module Chess
 
     def update_move_list(board)
       directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
-      @move_list = find_moves(board, directions)
+      @move_list = build_moves_dir(board, directions)
     end
   end
 end
