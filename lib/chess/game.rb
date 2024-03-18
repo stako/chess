@@ -6,14 +6,14 @@ module Chess
 
     def initialize
       @board = Board.new
-      place_pieces
+      initialize_pieces
     end
 
     def place_piece(type, color, file, rank)
       @board[file][rank] = type.new(color, [file, rank])
     end
 
-    def place_pieces
+    def initialize_pieces
       place_piece(Rook, WHITE, 0, 0)
       place_piece(Rook, WHITE, 7, 0)
       place_piece(Knight, WHITE, 1, 0)
