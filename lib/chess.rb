@@ -6,6 +6,7 @@ require_relative "chess/board"
 require_relative "chess/piece"
 require_relative "chess/rook"
 require_relative "chess/knight"
+require_relative "chess/bishop"
 
 module Chess
   WHITE = 0

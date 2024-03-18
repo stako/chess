@@ -38,11 +38,15 @@ module Chess
       place_piece(Rook, WHITE, 7, 0)
       place_piece(Knight, WHITE, 1, 0)
       place_piece(Knight, WHITE, 6, 0)
+      place_piece(Bishop, WHITE, 2, 0)
+      place_piece(Bishop, WHITE, 5, 0)
 
       place_piece(Rook, BLACK, 0, 7)
       place_piece(Rook, BLACK, 7, 7)
       place_piece(Knight, BLACK, 1, 7)
       place_piece(Knight, BLACK, 6, 7)
+      place_piece(Bishop, BLACK, 2, 7)
+      place_piece(Bishop, BLACK, 5, 7)
     end
   end
 end
