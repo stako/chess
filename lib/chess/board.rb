@@ -24,7 +24,7 @@ module Chess
     end
 
     def color(piece, file, rank)
-      return piece.on_grey if (file.odd? && rank.odd?) || (file.even? && rank.even?)
+      return piece.on_grey if (file.odd? && rank.even?) || (file.even? && rank.odd?)
 
       piece
     end
