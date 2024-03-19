@@ -4,10 +4,6 @@ module Chess
   module Board
     attr_reader :board
 
-    def [](index)
-      @board[index]
-    end
-
     def print_board(selected_piece = nil)
       display = ""
       (0..7).reverse_each do |rank|
