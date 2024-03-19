@@ -10,8 +10,8 @@ module Chess
       initialize_moves
     end
 
-    def place_piece(type, color, file, rank)
-      @board[file][rank] = type.new(color, [file, rank])
+    def place_piece(type, team, file, rank)
+      @board[file][rank] = type.new(team, [file, rank])
     end
 
     def initialize_pieces

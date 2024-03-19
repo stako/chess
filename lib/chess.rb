@@ -12,8 +12,8 @@ require_relative "chess/king"
 require_relative "chess/pawn"
 
 module Chess
-  WHITE = 0
-  BLACK = 1
+  WHITE = "White"
+  BLACK = "Black"
   EMPTY = "  "
 
   def self.new
