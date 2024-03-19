@@ -6,13 +6,14 @@ module Chess
 
     def initialize
       @board = Array.new(8) { Array.new(8) }
+      @pieces = []
       @player = WHITE
       initialize_pieces
       initialize_moves
     end
 
     def place_piece(type, team, file, rank)
-      @board[file][rank] = type.new(team, [file, rank])
+      @pieces << @board[file][rank] = type.new(team, [file, rank])
     end
 
     def initialize_pieces
@@ -48,7 +49,8 @@ module Chess
     def move_piece(piece, dest)
       return false if piece.nil? || !piece.move_list.include?(dest)
 
-      @board[piece.position[0]][piece.position[1]] = nil
+      @pieces.delete(@board[dest[0]][dest[1]])
+
       @board[dest[0]][dest[1]] = piece
       piece.position = dest
       true
