@@ -13,7 +13,7 @@ module Chess
     end
 
     def add_piece(type, team, file, rank)
-      @pieces << @board[file][rank] = type.new(team, [file, rank])
+      @pieces << @board[file][rank] = type.new(@board, team, [file, rank])
     end
 
     def initialize_pieces
@@ -39,7 +39,7 @@ module Chess
     end
 
     def update_moves
-      @pieces.each { |piece| piece.update_move_list(@board) }
+      @pieces.each { |piece| piece.update_move_list }
     end
 
     def move_piece(piece, dest)

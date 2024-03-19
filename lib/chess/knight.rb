@@ -8,9 +8,9 @@ module Chess
       @team == WHITE ? "\u2658 " : "\u265e "
     end
 
-    def update_move_list(board)
+    def update_move_list
       destinations = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]]
-      @move_list = build_moves_dest(board, destinations)
+      @move_list = build_moves_dest(destinations)
     end
   end
 end
