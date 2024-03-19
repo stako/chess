@@ -6,6 +6,7 @@ module Chess
 
     def initialize
       @board = Array.new(8) { Array.new(8) }
+      @player = WHITE
       initialize_pieces
       initialize_moves
     end
@@ -51,6 +52,10 @@ module Chess
       @board[dest[0]][dest[1]] = piece
       piece.position = dest
       true
+    end
+
+    def switch_players
+      @player = @player == WHITE ? BLACK : WHITE
     end
   end
 end
