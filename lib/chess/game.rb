@@ -47,6 +47,7 @@ module Chess
 
       @pieces.delete(@board[dest[0]][dest[1]])
 
+      @board[piece.position[0]][piece.position[1]] = nil
       @board[dest[0]][dest[1]] = piece
       piece.position = dest
       true
