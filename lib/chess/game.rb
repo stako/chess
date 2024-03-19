@@ -43,13 +43,12 @@ module Chess
     end
 
     def move_piece(piece, dest)
-      return false if piece.nil? || !piece.move_list.include?(dest)
+      return false unless piece&.move_list&.include?(dest)
 
       @pieces.delete(@board[dest[0]][dest[1]])
 
-      @board[piece.position[0]][piece.position[1]] = nil
-      @board[dest[0]][dest[1]] = piece
-      piece.position = dest
+      piece.pickup
+      piece.place(dest)
       true
     end
 

@@ -44,5 +44,15 @@ module Chess
       end
       list
     end
+
+    def pickup
+      @board[@position[0]][@position[1]] = nil
+      @position = nil
+    end
+
+    def place(destination)
+      @position = destination
+      @board[@position[0]][@position[1]] = self
+    end
   end
 end
