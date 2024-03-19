@@ -39,7 +39,7 @@ module Chess
     end
 
     def update_moves
-      @pieces.each { |piece| piece.update_move_list }
+      @pieces.each(&:update_move_list)
     end
 
     def move_piece(piece, dest)
