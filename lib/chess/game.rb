@@ -9,7 +9,7 @@ module Chess
       @pieces = []
       @player = WHITE
       initialize_pieces
-      initialize_moves
+      update_moves
     end
 
     def place_piece(type, team, file, rank)
@@ -38,12 +38,8 @@ module Chess
       8.times { |x| place_piece(Pawn, BLACK, x, 6) }
     end
 
-    def initialize_moves
-      [0, 1, 6, 7].each do |rank|
-        7.times do |file|
-          @board[file][rank].update_move_list(@board)
-        end
-      end
+    def update_moves
+      @pieces.each { |piece| piece.update_move_list(@board) }
     end
 
     def move_piece(piece, dest)
