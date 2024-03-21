@@ -25,7 +25,6 @@ module Chess
       add_piece(Bishop, WHITE, 5, 0)
       add_piece(Queen, WHITE, 3, 0)
       add_piece(King, WHITE, 4, 0)
-      8.times { |x| add_piece(Pawn, WHITE, x, 1) }
 
       add_piece(Rook, BLACK, 0, 7)
       add_piece(Rook, BLACK, 7, 7)
@@ -35,7 +34,11 @@ module Chess
       add_piece(Bishop, BLACK, 5, 7)
       add_piece(Queen, BLACK, 3, 7)
       add_piece(King, BLACK, 4, 7)
-      8.times { |x| add_piece(Pawn, BLACK, x, 6) }
+
+      8.times do |x|
+        add_piece(Pawn, WHITE, x, 1)
+        add_piece(Pawn, BLACK, x, 6)
+      end
     end
 
     def update_moves
