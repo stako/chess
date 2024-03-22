@@ -53,6 +53,7 @@ module Chess
 
       piece.pickup
       piece.place(dest)
+      update_moves
       true
     end
 
