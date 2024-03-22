@@ -24,8 +24,8 @@ module Chess
           list << [dest_x, dest_y] unless dest_piece&.team == @team
           break if dest_piece
 
-          dest_x += x
-          dest_y += y
+          dest_x += dx
+          dest_y += dy
         end
       end
       list
