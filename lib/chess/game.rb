@@ -3,6 +3,7 @@
 module Chess
   class Game
     include Board
+    attr_reader :player
 
     def initialize
       @board = Array.new(8) { Array.new(8) }
