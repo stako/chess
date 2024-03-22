@@ -58,5 +58,15 @@ module Chess
     def switch_players
       @player = @player == WHITE ? BLACK : WHITE
     end
+
+    def convert(notation)
+      file = notation[0].downcase.ord - 97
+      return nil unless file.between?(0, 7)
+
+      rank = notation[1].to_i - 1
+      return nil unless rank.between?(0, 7)
+
+      [file, rank]
+    end
   end
 end
