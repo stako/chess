@@ -18,7 +18,7 @@ module Chess
         dest_x = @position[0] + dx
         dest_y = @position[1] + dy
         loop do
-          break if dest_x > 7 || dest_y > 7
+          break unless dest_x.between?(0, 7) && dest_y.between?(0, 7)
 
           dest_piece = @board[dest_x][dest_y]
           list << [dest_x, dest_y] unless dest_piece&.team == @team
@@ -36,7 +36,7 @@ module Chess
       destinations.each do |dx, dy|
         dest_x = @position[0] + dx
         dest_y = @position[1] + dy
-        next if dest_x > 7 || dest_y > 7
+        next unless dest_x.between?(0, 7) && dest_y.between?(0, 7)
 
         dest_piece = @board[dest_x][dest_y]
 
