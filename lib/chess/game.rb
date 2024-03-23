@@ -14,7 +14,10 @@ module Chess
     end
 
     def add_piece(type, team, file, rank)
-      @pieces << @board[file][rank] = type.new(@board, team, [file, rank])
+      piece = type.new(@board, team, [file, rank])
+      @pieces << piece
+      @board[file][rank] = piece
+      piece
     end
 
     def initialize_pieces
