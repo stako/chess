@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Chess
-  module Piece
+  class Piece
     attr_reader :team, :move_list
     attr_accessor :position
 

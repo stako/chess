@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Chess
-  class Pawn
-    include Piece
-
+  class Pawn < Piece
     def to_s
       @team == WHITE ? "\u2659 " : "\u265f "
     end
