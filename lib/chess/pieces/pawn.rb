@@ -22,15 +22,15 @@ module Chess
     end
 
     def forward_moves(from, board)
-      array = []
+      moves = []
       one_move_pos = from + @forward
       if can_move_to?(one_move_pos, board)
-        array << NormalMove.new(from, one_move_pos)
+        moves << NormalMove.new(from, one_move_pos)
 
         two_moves_pos = one_move_pos + @forward
-        array << NormalMove.new(from, two_moves_pos) if !has_moved && can_move_to?(two_moves_pos, board)
+        moves << NormalMove.new(from, two_moves_pos) if !has_moved && can_move_to?(two_moves_pos, board)
       end
-      array
+      moves
     end
 
     def diagonal_moves(from, board)
