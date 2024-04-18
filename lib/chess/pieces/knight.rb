@@ -7,14 +7,12 @@ module Chess
     end
 
     def potential_move_positions(from)
-      array = []
-      [Direction::NORTH, Direction::SOUTH].each do |v_dir|
+      [Direction::NORTH, Direction::SOUTH].each_with_object([]) do |v_dir, positions|
         [Direction::EAST, Direction::WEST].each do |h_dir|
-          array << (from + (v_dir * 2) + h_dir)
-          array << (from + (h_dir * 2) + v_dir)
+          positions << (from + (v_dir * 2) + h_dir)
+          positions << (from + (h_dir * 2) + v_dir)
         end
       end
-      array
     end
 
     def move_positions(from, board)
