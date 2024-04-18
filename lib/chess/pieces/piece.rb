@@ -16,16 +16,16 @@ module Chess
     end
 
     def positions_in_dir(from, board, direction)
-      array = []
+      positions = []
       pos = from + direction
 
       while board.inside?(pos) && board.empty?(pos)
-        array << pos
+        positions << pos
         pos += direction
       end
 
-      array << pos if board.inside?(pos) && board[pos].color != color
-      array
+      positions << pos if board.inside?(pos) && board[pos].color != color
+      positions
     end
 
     def positions_in_dirs(from, board, directions)
