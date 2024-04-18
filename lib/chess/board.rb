@@ -61,14 +61,12 @@ module Chess
     end
 
     def piece_positions
-      array = []
-      8.times do |row|
-        8.times do |column|
+      (0..7).each_with_object([]) do |row, positions|
+        (0..7).each do |column|
           pos = Position.new(row, column)
-          array << pos unless empty?(pos)
+          positions << pos unless empty?(pos)
         end
       end
-      array
     end
   end
 end
