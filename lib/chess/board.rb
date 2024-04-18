@@ -52,9 +52,6 @@ module Chess
       pieces.each_with_index do |piece, column|
         self[0, column] = piece.new(Player::BLACK)
         self[7, column] = piece.new(Player::WHITE)
-      end
-
-      8.times do |column|
         self[1, column] = Pawn.new(Player::BLACK)
         self[6, column] = Pawn.new(Player::WHITE)
       end
