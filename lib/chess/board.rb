@@ -6,6 +6,12 @@ module Chess
       @pieces = Array.new(8) { Array.new(8) }
     end
 
+    def self.fresh
+      board = new
+      board.add_start_pieces
+      board
+    end
+
     # usage:
     # board[row, column] where row & column are integers
     # board[pos] where pos is a Position object
@@ -31,6 +37,20 @@ module Chess
 
     def empty?(position)
       self[position].nil?
+    end
+
+    def add_start_pieces
+      pieces = [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]
+
+      pieces.each_with_index do |piece, column|
+        self[0, column] = piece.new(Player::BLACK)
+        self[7, column] = piece.new(Player::WHITE)
+      end
+
+      8.times do |column|
+        self[1, column] = Pawn.new(Player::BLACK)
+        self[6, column] = Pawn.new(Player::WHITE)
+      end
     end
   end
 end
