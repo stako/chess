@@ -11,6 +11,10 @@ module Chess
       forward_moves(from, board) + diagonal_moves(from, board)
     end
 
+    def can_capture_type?(from, board, piece_type)
+      diagonal_moves(from, board).any? { |move| board[move.to_pos].is_a?(piece_type) }
+    end
+
     def can_move_to?(pos, board)
       board.inside?(pos) && board.empty?(pos)
     end

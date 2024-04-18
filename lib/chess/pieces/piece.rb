@@ -15,6 +15,10 @@ module Chess
       new_piece
     end
 
+    def can_capture_type?(from, board, piece_type)
+      get_moves(from, board).any? { |move| board[move.to_pos].is_a?(piece_type) }
+    end
+
     def positions_in_dir(from, board, direction)
       positions = []
       pos = from + direction
