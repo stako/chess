@@ -18,14 +18,10 @@ module Chess
     end
 
     def move_positions(from, board)
-      array = []
-      DIRECTIONS.each do |dir|
+      DIRECTIONS.map do |dir|
         pos = from + dir
-        next unless board.inside?(pos)
-
-        array << pos if board.empty?(pos) || (board[pos].color != color)
-      end
-      array
+        pos if board.inside?(pos) && (board.empty?(pos) || (board[pos].color != color))
+      end.compact
     end
   end
 end
