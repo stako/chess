@@ -14,5 +14,24 @@ module Chess
       new_piece.has_moved = has_moved
       new_piece
     end
+
+    def positions_in_dir(from, board, direction)
+      array = []
+      pos = from + direction
+
+      while board.inside?(pos) && board.empty?(pos)
+        array << pos
+        pos += direction
+      end
+
+      array << pos if board.inside?(pos) && board[pos].color != color
+      array
+    end
+
+    def positions_in_dirs(from, board, directions)
+      array = []
+      directions.each { |dir| array += positions_in_dir(from, board, dir) }
+      array
+    end
   end
 end

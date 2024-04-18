@@ -24,5 +24,13 @@ module Chess
         @pieces[args[0]][args[1]] = args[2]
       end
     end
+
+    def inside?(position)
+      position.row.between?(0, 7) && position.column.between?(0, 7)
+    end
+
+    def empty?(position)
+      self[position].nil?
+    end
   end
 end
