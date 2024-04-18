@@ -5,7 +5,7 @@ module Chess
     WHITE = "White"
     BLACK = "Black"
 
-    def opponent(player)
+    def self.opponent(player)
       case player
       when WHITE
         BLACK
