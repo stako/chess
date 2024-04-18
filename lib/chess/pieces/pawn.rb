@@ -34,12 +34,10 @@ module Chess
     end
 
     def diagonal_moves(from, board)
-      array = []
-      [Direction::WEST, Direction::EAST].each do |dir|
+      [Direction::WEST, Direction::EAST].each_with_object([]) do |dir, moves|
         to = from + @forward + dir
-        array << NormalMove.new(from, to) if can_capture_at?(to, board)
+        moves << NormalMove.new(from, to) if can_capture_at?(to, board)
       end
-      array
     end
   end
 end
