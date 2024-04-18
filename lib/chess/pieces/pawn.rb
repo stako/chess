@@ -26,19 +26,17 @@ module Chess
     end
 
     def forward_moves(from, board)
-      moves = []
-      one_move_pos = from + @forward
-      if can_move_to?(one_move_pos, board)
-        if one_move_pos.row.zero? || one_move_pos.row == 7
-          moves += promotion_moves(from, one_move_pos)
-        else
-          moves << NormalMove.new(from, one_move_pos)
-        end
+      (1..2).each_with_object([]) do |i, moves|
+        to = from + (@forward * i)
+        break moves unless can_move_to?(to, board)
 
-        two_moves_pos = one_move_pos + @forward
-        moves << NormalMove.new(from, two_moves_pos) if !has_moved && can_move_to?(two_moves_pos, board)
+        if to.row.zero? || to.row == 7
+          moves.concat(promotion_moves(from, to))
+        else
+          moves << NormalMove.new(from, to)
+        end
+        break moves if has_moved
       end
-      moves
     end
 
     def diagonal_moves(from, board)
@@ -47,7 +45,7 @@ module Chess
         next unless can_capture_at?(to, board)
 
         if to.row.zero? || to.row == 7
-          promotion_moves(from, to).each { |move| moves << move }
+          moves.concat(promotion_moves(from, to))
         else
           moves << NormalMove.new(from, to)
         end
