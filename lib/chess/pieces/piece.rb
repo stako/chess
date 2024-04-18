@@ -29,9 +29,7 @@ module Chess
     end
 
     def positions_in_dirs(from, board, directions)
-      array = []
-      directions.each { |dir| array += positions_in_dir(from, board, dir) }
-      array
+      directions.flat_map { |dir| positions_in_dir(from, board, dir) }
     end
   end
 end
