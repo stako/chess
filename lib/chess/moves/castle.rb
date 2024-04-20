@@ -5,7 +5,7 @@ module Chess
     attr_reader :king_move_dir, :rook_from_pos, :rook_to_pos
 
     def initialize(from_pos, side)
-      @from_pos = from_pos
+      super(from_pos, nil)
 
       if side == King
         @king_move_dir = Direction::EAST
