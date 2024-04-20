@@ -54,5 +54,10 @@ module Chess
 
       unmoved?(rook_pos, board) && all_empty?(intermediates, board)
     end
+
+    def can_capture_type?(from, board, piece_type)
+      moves = move_positions(from, board).map { |to| NormalMove.new(from, to) }
+      moves.any? { |move| board[move.to_pos].is_a?(piece_type) }
+    end
   end
 end
