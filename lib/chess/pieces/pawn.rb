@@ -26,17 +26,21 @@ module Chess
     end
 
     def forward_moves(from, board)
-      (1..2).each_with_object([]) do |i, moves|
-        to = from + (@forward * i)
-        break moves unless can_move_to?(to, board)
+      single_move_pos = from + @forward
 
-        if to.row.zero? || to.row == 7
-          moves.concat(promotion_moves(from, to))
-        else
-          moves << NormalMove.new(from, to)
-        end
-        break moves if has_moved
-      end
+      return [] unless can_move_to?(single_move_pos, board)
+
+      moves = if single_move_pos.row.zero? || single_move_pos.row == 7
+                promotion_moves(from, single_move_pos)
+              else
+                [NormalMove.new(from, single_move_pos)]
+              end
+
+      double_move_pos = single_move_pos + @forward
+
+      return moves unless !has_moved && can_move_to?(double_move_pos, board)
+
+      moves << DoublePawn.new(from, double_move_pos)
     end
 
     def diagonal_moves(from, board)
