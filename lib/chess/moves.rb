@@ -3,3 +3,4 @@
 require_relative "moves/move"
 require_relative "moves/normal_move"
 require_relative "moves/pawn_promotion"
+require_relative "moves/castle"
