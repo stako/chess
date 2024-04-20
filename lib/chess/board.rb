@@ -2,6 +2,8 @@
 
 module Chess
   class Board
+    attr_accessor :en_passant_pos
+
     def initialize
       @pieces = Array.new(8) { Array.new(8) }
     end

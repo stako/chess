@@ -46,13 +46,11 @@ module Chess
     def diagonal_moves(from, board)
       [Direction::WEST, Direction::EAST].each_with_object([]) do |dir, moves|
         to = from + @forward + dir
+        next moves << EnPassant.new(from, to) if to == board.en_passant_pos
         next unless can_capture_at?(to, board)
+        next moves.concat(promotion_moves(from, to)) if to.row.zero? || to.row == 7
 
-        if to.row.zero? || to.row == 7
-          moves.concat(promotion_moves(from, to))
-        else
-          moves << NormalMove.new(from, to)
-        end
+        moves << NormalMove.new(from, to)
       end
     end
 

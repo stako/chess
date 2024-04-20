@@ -11,6 +11,7 @@ module Chess
 
     def execute(board)
       Chess::NormalMove.new(from_pos, to_pos).execute(board)
+      board.en_passant_pos = skipped_pos
     end
   end
 end
