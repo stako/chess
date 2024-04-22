@@ -29,14 +29,7 @@ module Chess
       player = board[from_pos].color
       return false if board.in_check?(player)
 
-      board_copy = board.copy
-      pos_in_copy = from_pos
-
-      2.times do
-        NormalMove.new(pos_in_copy, pos_in_copy + king_move_dir).execute(board_copy)
-        pos_in_copy += king_move_dir
-        return false if board_copy.in_check?(player)
-      end
+      (1..2).each { |i| return false unless NormalMove.new(from_pos, from_pos + (king_move_dir * i)).legal?(board) }
       true
     end
   end
