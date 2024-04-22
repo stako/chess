@@ -68,6 +68,10 @@ module Chess
       end
     end
 
+    def piece_positions_for(player)
+      piece_positions.select { |pos| self[pos].color == player }
+    end
+
     def in_check?(player)
       king_pos = piece_positions.find { |pos| self[pos].is_a?(King) && self[pos].color == player }
       piece_types = [Pawn, Knight, Rook, Bishop, Queen, King]
