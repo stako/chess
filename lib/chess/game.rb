@@ -26,6 +26,7 @@ module Chess
     end
 
     def make_move(move)
+      board.en_passant_pos = nil
       move.execute(board)
       self.current_player = Player.opponent(current_player)
     end

@@ -7,7 +7,6 @@ module Chess
       board[to_pos] = piece
       board[from_pos] = nil
       piece.has_moved = true
-      board.en_passant_pos = nil
     end
   end
 end

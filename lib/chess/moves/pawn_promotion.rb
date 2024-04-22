@@ -16,7 +16,6 @@ module Chess
       new_piece = type.new(pawn.color)
       new_piece.has_moved = true
       board[to_pos] = new_piece
-      board.en_passant_pos = nil
     end
   end
 end
