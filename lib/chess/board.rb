@@ -78,5 +78,19 @@ module Chess
 
       piece_types.any? { |piece_type| piece_type.new(player).can_capture_type?(king_pos, self, piece_type) }
     end
+
+    def to_s
+      files = "  a b c d e f g h\n"
+      files + @pieces.map.with_index { |row, row_index|
+        "#{8 - row_index} " + row.map.with_index { |piece, column_index|
+          color(piece&.to_s || "  ", row_index + column_index)
+        }.join + " #{8 - row_index}\n"
+      }.join + files
+    end
+
+    def color(piece, index)
+      alt = index.odd?
+      alt ? piece.black.on_grey : piece.black.on_white
+    end
   end
 end

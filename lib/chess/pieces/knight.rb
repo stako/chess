@@ -20,5 +20,9 @@ module Chess
         board.inside?(pos) && (board.empty?(pos) || board[pos].color != color)
       end
     end
+
+    def to_s
+      color == Player::WHITE ? "\u2658 " : "\u265E "
+    end
   end
 end

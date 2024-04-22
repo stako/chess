@@ -59,5 +59,9 @@ module Chess
         moves << PawnPromotion.new(from, to, type)
       end
     end
+
+    def to_s
+      color == Player::WHITE ? "\u2659 " : "\u265F "
+    end
   end
 end

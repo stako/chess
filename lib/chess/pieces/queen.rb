@@ -16,5 +16,9 @@ module Chess
     def get_moves(from, board)
       positions_in_dirs(from, board, DIRECTIONS).map { |to| NormalMove.new(from, to) }
     end
+
+    def to_s
+      color == Player::WHITE ? "\u2655 " : "\u265B "
+    end
   end
 end

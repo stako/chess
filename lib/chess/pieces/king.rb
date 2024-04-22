@@ -59,5 +59,9 @@ module Chess
       moves = move_positions(from, board).map { |to| NormalMove.new(from, to) }
       moves.any? { |move| board[move.to_pos].is_a?(piece_type) }
     end
+
+    def to_s
+      color == Player::WHITE ? "\u2654 " : "\u265A "
+    end
   end
 end
